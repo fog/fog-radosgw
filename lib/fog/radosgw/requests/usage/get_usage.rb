@@ -5,7 +5,7 @@ module Fog
 
         def sanitize_and_convert_time(time)
           fmt = '%Y-%m-%d %H:%M:%S'
-          Fog::AWS.escape(time.strftime(fmt))
+          escape(time.strftime(fmt))
         end
 
       end

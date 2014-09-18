@@ -7,7 +7,7 @@ module Fog
 
         def get_user(user_id)
           path = "admin/user"
-          user_id = Fog::AWS.escape(user_id)
+          user_id = escape(user_id)
           query = "?uid=#{user_id}&format=json"
           params = { 
             :method => 'GET',

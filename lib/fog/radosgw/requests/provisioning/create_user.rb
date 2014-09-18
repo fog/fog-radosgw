@@ -10,9 +10,9 @@ module Fog
           end
 
           path         = "admin/user"
-          user_id      = Fog::AWS.escape(user_id)
-          display_name = Fog::AWS.escape(display_name)
-          email        = Fog::AWS.escape(email)
+          user_id      = escape(user_id)
+          display_name = escape(display_name)
+          email        = escape(email)
           query        = "?uid=#{user_id}&display-name=#{display_name}&email=#{email}&format=json"
           params       = {
             :method => 'PUT',

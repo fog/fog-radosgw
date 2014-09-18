@@ -72,7 +72,7 @@ module Fog
 
       def update_radosgw_user(user_id, user)
         path         = "admin/user"
-        user_id      = Fog::AWS.escape(user_id)
+        user_id      = escape(user_id)
         params       = {
           :method => 'POST',
           :path => path,
@@ -123,6 +123,12 @@ module Fog
 
       def radosgw_uri
         "#{@scheme}://#{@host}:#{@port}"
+      end
+
+      def escape(string)
+        string.gsub(/([^a-zA-Z0-9_.\-~]+)/) {
+          "%" + $1.unpack("H2" * $1.bytesize).join("%").upcase
+        }
       end
 
       def signed_headers(params)
