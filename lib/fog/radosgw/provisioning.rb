@@ -1,4 +1,5 @@
 require 'fog/radosgw/core'
+require 'fog/xml'
 
 module Fog
   module Radosgw
@@ -55,7 +56,7 @@ module Fog
           @persistent               = options[:persistent]         || false
           @path_style               = options[:path_style]         || false
 
-          @raw_connection = Fog::XML::Connection.new(radosgw_uri, @persistent, @connection_options)
+          @raw_connection = Fog::Xml::Connection.new(radosgw_uri, @persistent, @connection_options)
 
           @s3_connection  = Fog::Storage.new(
             :provider              => 'AWS',

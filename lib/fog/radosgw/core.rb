@@ -1,4 +1,4 @@
-require 'fog'
+require 'fog/core'
 
 module Fog
   module Radosgw
