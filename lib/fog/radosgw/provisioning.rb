@@ -1,4 +1,5 @@
 require 'fog/radosgw/core'
+require 'fog/json'
 require 'fog/xml'
 
 module Fog
@@ -57,17 +58,6 @@ module Fog
           @path_style               = options[:path_style]         || false
 
           @raw_connection = Fog::Xml::Connection.new(radosgw_uri, @persistent, @connection_options)
-
-          @s3_connection  = Fog::Storage.new(
-            :provider              => 'AWS',
-            :aws_access_key_id     => @radosgw_access_key_id,
-            :aws_secret_access_key => @radosgw_secret_access_key,
-            :host                  => @host,
-            :port                  => @port,
-            :scheme                => @scheme,
-            :path_style            => @path_style,
-            :connection_options    => @connection_options
-          )
         end
 
         def request(params, parse_response = true, &block)

@@ -45,16 +45,6 @@ module Fog
           @radosgw_secret_access_key = options[:radosgw_secret_access_key]
           @connection_options       = options[:connection_options] || {}
           @persistent               = options[:persistent]         || false
-
-          @s3_connection = Fog::Storage.new(
-            :provider              => 'AWS',
-            :aws_access_key_id     => @radosgw_access_key_id,
-            :aws_secret_access_key => @radosgw_secret_access_key,
-            :host                  => @host,
-            :port                  => @port,
-            :scheme                => @scheme,
-            :connection_options    => @connection_options
-          )
         end
       end
     end
