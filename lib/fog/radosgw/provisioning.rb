@@ -57,7 +57,7 @@ module Fog
           @persistent               = options[:persistent]         || false
           @path_style               = options[:path_style]         || false
 
-          @connection = Fog::Xml::Connection.new(radosgw_uri, @persistent, @connection_options)
+          @connection = Fog::XML::Connection.new(radosgw_uri, @persistent, @connection_options)
         end
 
         def request(params, parse_response = true, &block)

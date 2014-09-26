@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
   s.extra_rdoc_files = %w[README.md LICENSE.md]
 
   s.add_dependency 'fog-json'
-  s.add_dependency 'fog-xml'
+  s.add_dependency 'fog-xml', '>=0.0.1'
   s.add_dependency 'fog-core', '>=1.21.0'
   s.add_development_dependency 'rake'
   s.add_development_dependency 'yard'
