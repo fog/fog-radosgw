@@ -49,7 +49,7 @@ end
 #############################################################################
 
 GEM_NAME = "#{name}"
-task :default => :test
+task :default => :travis
 task :travis  => ['test', 'test:travis']
 
 Rake::TestTask.new do |t|
