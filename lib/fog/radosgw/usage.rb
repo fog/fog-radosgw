@@ -1,4 +1,3 @@
-require 'fog/radosgw/core'
 require 'time'
 
 module Fog

@@ -1,7 +1,3 @@
-require 'fog/radosgw/core'
-require 'fog/json'
-require 'fog/xml'
-
 module Fog
   module Radosgw
     class Provisioning < Fog::Service
