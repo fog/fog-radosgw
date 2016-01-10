@@ -21,13 +21,11 @@ module Fog
       def signature(params, expires)
         headers = params[:headers] || {}
 
-        string_to_sign =
-            <<-DATA
-#{params[:method].to_s.upcase}
-        #{headers['Content-MD5']}
-        #{headers['Content-Type']}
-        #{expires}
-        DATA
+        string_to_sign = [
+          params[:method].to_s.upcase,
+          headers['Content-MD5'],
+          headers['Content-Type'],
+          expires].map(&:to_s).join("\n") + "\n"
 
         amz_headers, canonical_amz_headers = {}, ''
         for key, value in headers
